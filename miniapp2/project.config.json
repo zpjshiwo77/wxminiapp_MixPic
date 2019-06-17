@@ -14,7 +14,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.7.1",
 	"appid": "touristappid",
-	"projectname": "miniapp",
+	"projectname": "miniapp_camera",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
