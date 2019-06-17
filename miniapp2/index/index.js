@@ -34,7 +34,7 @@ Page({
   },
   onLoad: function () {
     var arr = [];
-    for (let i = 0; i < 18; i++) {
+    for (let i = 0; i < 7; i++) {
       arr.push(i + 1);
     }
     this.setData({
@@ -300,9 +300,9 @@ Page({
    */
   moveR() {
     var dis = this.data.scrollDis;
-    if(dis < 600){
+    if(dis < 100){
       dis += 104;
-      dis = dis > 600 ? 600 : dis;
+      dis = dis > 100 ? 100 : dis;
       this.setData({
         scrollDis: dis
       });
