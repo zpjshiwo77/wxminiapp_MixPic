@@ -1,0 +1,134 @@
+/* 基础 */
+.article{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.section{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 底图 */
+.baseBox,.editBox{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 750rpx;
+  height: 911rpx;
+  margin-top: -485rpx;
+  overflow: hidden;
+}
+.baseImg{
+  width: 100%;
+  height: 100%;
+}
+
+/* 编辑icon */
+.icon{
+  position: absolute;
+  top: 255rpx;
+  left: 175rpx;
+  width: 400rpx;
+  height: 400rpx;
+}
+.remove{
+  position: absolute;
+  top: -35rpx;
+  right: -35rpx;
+  width: 70rpx;
+  height: 70rpx;
+}
+.iconImg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* 选择icon */
+.iconsBox{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 750rpx;
+  height: 125rpx;
+  margin-top: 300rpx;
+  background-color: rgba(0,0,0,0.2);
+  z-index: 99;
+  overflow: hidden;
+}
+.arL{
+  position: absolute;
+  top: 33.5rpx;
+  left: 20rpx;
+  width: 31rpx;
+  height: 58rpx;
+}
+.arR{
+  position: absolute;
+  top: 33.5rpx;
+  right: 20rpx;
+  width: 31rpx;
+  height: 58rpx;
+}
+.icons{
+  position: absolute;
+  top: 0;
+  left: 70rpx;
+  width: 610rpx;
+  height: 125rpx;
+  display: block;
+  white-space: nowrap;
+}
+.choseIcon{
+  display: inline-block;
+  width: 90rpx;
+  height: 90rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  margin: 17.5rpx 7rpx;
+}
+
+/* 按钮 */
+.btnBox{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 750rpx;
+  height: 73rpx;
+  margin-top: 480rpx;
+}
+.Take{
+  position: absolute;
+  top: 0;
+  left: 60rpx;
+  width: 290rpx;
+  height: 73rpx;
+}
+.upload{
+  position: absolute;
+  top: 0;
+  right: 60rpx;
+  width: 290rpx;
+  height: 73rpx;
+}
+
+/* 合成图片的canvas */
+.canvas_box{
+  position: absolute;
+  top: -3000rpx;
+  left: 0;
+  width: 1500rpx;
+  height: 1822rpx;
+}
+.upload-canvas{
+  width: 100%;
+  height: 100%;
+}

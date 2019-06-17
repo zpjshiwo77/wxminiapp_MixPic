@@ -1,0 +1,56 @@
+<!-- 设计思路：
+用户看到的编辑页面和实际进行合成的页面是分开的，
+通过编辑页面编辑以后，记录下用户的编辑数据，再在合成的页面上生成相应的UI，再进行合成。
+这样做的好处是：
+1.方便进行适配，编辑页面可以针对手机的分辨率进行适配，而合成页面不用显示，所以固定尺寸即可。
+2.方便调试，合成页面是一个canvas不容易调试，先用容易操作的常规标签做编辑页面，再在合成页面合成会比较方便调试。 -->
+
+<view class="article" catchtouchmove="true">
+    <!-- 进行照片合成的容器 start -->
+    <view class="canvas_box">
+        <canvas class="upload-canvas" canvas-id='upload-canvas'></canvas>
+    </view>
+    <!-- 进行照片合成的容器 start -->
+
+    <!-- 进行图片编辑的容器 start -->
+    <view class='section'>
+        <!-- 基础图片的容器 start -->
+        <view class="baseBox">
+            <image src="{{baseImg}}" mode="aspectFill" class="baseImg" />
+        </view>
+        <!-- 基础图片的容器 end -->
+
+        <!-- icon编辑的容器 start -->
+        <!-- catchtouchmove="true" catchtouchstart='touchStart' catchtouchmove='touchMove' catchtouchend='touchEnd' catchtouchcancel='touchCancel' 通过touchEvent.js给编辑容器的最外层绑定touch事件 -->
+        <view class="editBox" catchtouchmove="true" catchtouchstart='touchStart' catchtouchmove='touchMove' catchtouchend='touchEnd' catchtouchcancel='touchCancel'>
+            <block wx:for="{{editIcons}}" wx:key="icon">
+                <view class="icon" bindtouchstart="choseIcon" data-id="{{item.index}}" style="top:{{item.top}}rpx;left:{{item.left}}rpx;width:{{item.width}}rpx;height:{{item.height}}rpx;transform: rotate({{item.rotate}}deg);z-index:{{item.zIndex}}">
+                    <image style="{{item.act ? 'border: 2px solid #000;' : ''}}" src="{{item.src}}" mode="aspectFill" class="iconImg" />
+                    <image catchtouchstart="removeIcon" data-id="{{item.index}}" wx:if="{{item.act}}" src="/images/remove.png" mode="aspectFill" class="remove" />
+                </view>
+            </block>
+        </view>
+        <!-- icon编辑的容器 end -->
+
+        <!-- 选择icon的容器 start -->
+        <view class="iconsBox">
+            <image src="/images/arL.png" mode="aspectFill" class="arL" catchtap="moveL"/>
+            <scroll-view class="icons" scroll-left="{{scrollDis}}" scroll-x="true" scroll-with-animation="true" bindscroll="scroll" style="width: 610rpx;">
+                <block wx:for="{{choseIcons}}" wx:key="">
+                    <image src="/images/icons/{{item}}.png" mode="aspectFill" bindtap="addIcon" data-id="{{item}}" class="choseIcon" />
+                </block>
+            </scroll-view>
+            <image src="/images/arR.png" mode="aspectFill" class="arR" catchtap="moveR"/>
+        </view>
+        <!-- 选择icon的容器 end -->
+
+        <!-- 按钮容器 start -->
+        <view class="btnBox">
+            <image src="/images/take.png" mode="aspectFill" class="Take" catchtap="choseImg" />
+            <image src="/images/upload.png" mode="aspectFill" class="upload" catchtap="makePhoto" />
+        </view>
+        <!-- 按钮容器 end -->
+        
+    </view>
+    <!-- 进行图片编辑的容器 end -->
+</view>
